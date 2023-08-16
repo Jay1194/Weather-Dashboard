@@ -1,0 +1,27 @@
+
+.title-color {
+background: hsla(232, 41%, 45%, 1);
+
+background: linear-gradient(0deg, hsla(232, 41%, 45%, 1) 0%, hsla(248, 93%, 11%, 1) 100%);
+
+background: -moz-linear-gradient(0deg, hsla(232, 41%, 45%, 1) 0%, hsla(248, 93%, 11%, 1) 100%);
+
+background: -webkit-linear-gradient(0deg, hsla(232, 41%, 45%, 1) 0%, hsla(248, 93%, 11%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4451A4", endColorstr="#090238", GradientType=1 );
+}
+
+.title-align {
+    margin-left: 16%
+}
+
+#btn {
+   background-color: cornflowerblue;
+   color:white;
+   border: silver;
+}
+
+.line{
+    margin: 5% 0;
+    border-bottom: 1px black solid;
+}
