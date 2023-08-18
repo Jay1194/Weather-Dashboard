@@ -16,7 +16,7 @@
     </header>
 
 <!-- search city form -->
-    <main class="row m-1">
+    <section class="row m-1">
         <div class="col-3">
         <h2 class="font-weight-bold">Search for a City:</h2>
         <form id="city-form">
@@ -28,11 +28,89 @@
           </form>
         </div>
 <!-- current city right now-->
-<div class="col-8">
-
+<div id="currentBox" class="col-8 border border-dark mt-3 ml-4">
+    <div>
+        <!-- append to the span -->
+        <h1 class="mb-4">Atlanta <span>(08/18/2023)</span></h1>
+        <h5 class="mb-4">Temp:<span></span></h5>
+        <h5 class="mb-4">Wind:<span></span></h5>
+        <h5>Humidity:<span></span></h5>
+    </div>
 </div>
+</section>
+<!-- Cached search history -->
+<section class="row m-1">
+    <div class="col-3">
+        <div >
+            <!-- append to the ul-->
+            <ul class="p-0 m-0">
+            <li class="history">Atlanta</li>
+            <li class="history"> Chicago</li>
+        </ul>
+    </div>
+</div>
+<!-- 5 day forcast -->
+<div class="col-8  mt-4 ml-4">
+    <div class="mb-3">
+        <h1>5 Day Forcast:</h1>
+    </div>
+    <!-- 5 day Cards-->
+    <div class="d-flex justify-content-around mb-auto">
+        <article class="card text-white bg-dark cards" style="max-width: 18rem;">
+            <div class="card-body">
+                <!-- Insert data into spans-->
+                <h5 class="mb-5">Date:<span></span></h5>
+                <i></i>
+                <h5 class="mb-5">Temp:<span></span></h5>
+                <h5 class="mb-5">Wind:<span></span></h5>
+                <h5>Humidity:<span></span></h5>
+            </div>
+        </article>
+        <article class="card text-white bg-dark cards" style="max-width: 18rem;">
+            <div class="card-body">
+                <!-- Insert data into spans-->
+                <h5 class="mb-5">Date:<span></span></h5>
+                <i></i>
+                <h5 class="mb-5">Temp:<span></span></h5>
+                <h5 class="mb-5">Wind:<span></span></h5>
+                <h5>Humidity:<span></span></h5>
+            </div>
+        </article>
+        <article class="card text-white bg-dark cards" style="max-width: 18rem;">
+            <div class="card-body">
+                <!-- Insert data into spans-->
+                <h5 class="mb-5">Date:<span></span></h5>
+                <i></i>
+                <h5 class="mb-5">Temp:<span></span></h5>
+                <h5 class="mb-5">Wind:<span></span></h5>
+                <h5>Humidity:<span></span></h5>
+            </div>
+        </article>
+        <article class="card text-white bg-dark cards" style="max-width: 18rem;">
+            <div class="card-body">
+                <!-- Insert data into spans-->
+                <h5 class="mb-5">Date:<span></span></h5>
+                <i></i>
+                <h5 class="mb-5">Temp:<span></span></h5>
+                <h5 class="mb-5">Wind:<span></span></h5>
+                <h5>Humidity:<span></span></h5>
+            </div>
+        </article>
+        <article class="card text-white bg-dark cards" style="max-width: 18rem;">
+            <div class="card-body">
+                <!-- Insert data into spans-->
+                <h5 class="mb-5">Date:<span></span></h5>
+                <i></i>
+                <h5 class="mb-5">Temp:<span></span></h5>
+                <h5 class="mb-5">Wind:<span></span></h5>
+                <h5>Humidity:<span></span></h5>
+            </div>
+        </article>
+    </div>
+</section>
 
-</main>
+
+
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

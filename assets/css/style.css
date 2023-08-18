@@ -23,5 +23,22 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4451A4", en
 
 .line{
     margin: 5% 0;
-    border-bottom: 1px black solid;
+    border-bottom: 1px silver solid;
+}
+
+.history {
+    margin-bottom: 4%;
+    display: flex;
+    list-style: none;
+    font-size: 16px;
+    background-color: silver;
+    color: black;
+    justify-content: center;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1% 0;
+}
+
+.cards{
+    width: 18%;
 }
