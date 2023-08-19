@@ -37,10 +37,27 @@ var getCurrentWeather = function(city) {
     alert("Unable to connect to server");
 });
 };
-getCurrentWeather("las vegas");
 
 
+// executed upon a form submission browser event
+var formSubmitHandler = function(event) {
+    event.preventDefault();
 
+    // get value from input element
+    var citys = cityInputEl.value.trim();
+
+    // send value over to getCurrentWeather()
+    if (citys) {
+        getCurrentWeather(citys);
+        // clears form out
+        cityInputEl.value = "";
+        // No HTTP request without a city, if we accidentally left the <input> field blank!
+    } else {
+        alert("Please enter a city name!");
+    }
+};
+// submit event listener
+cityFormEl.addEventListener("submit", formSubmitHandler);
 
 
 
