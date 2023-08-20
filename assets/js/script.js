@@ -8,12 +8,17 @@ var cityInputEl = document.querySelector("#city");
 // reference to form element
 var cityFormEl = document.querySelector("#city-form");
 
+// Todays Date
+var currentDateEl = document.querySelector("#curDate");
+// Icon
+var currentIconEl = document.querySelector("#icon")
+
 //current city apended
 var currentCityEl = document.querySelector("#curCity");
 // current box container
 var currentBoxEl = document.querySelector("#currentBox")
-//current date appended
-var currentDateEl = document.querySelector("#curDate");
+// current icon
+var currentIconEl = document.querySelector("#icon")
 // current temperature appended
 var currentTempEl = document.querySelector("#curTemp");
 //current wind speed appended
@@ -71,18 +76,31 @@ cityFormEl.addEventListener("submit", formSubmitHandler);
 
 
 // Dynamically present data for current weather box
-var displayCurrentWeather = function(curCity, temper, windS, humid) {
+var displayCurrentWeather = function(citys, temper, windS, humid, icons) {
 
     //current city
     currentCityEl.textContent = "";
-    currentCityEl.textContent = curCity.toUpperCase();
+    currentCityEl.textContent = citys.toUpperCase();
 
     //format current box
-    var cityName = curCity.name
+    var cityName = citys.name
     var curTemper = (temper.main.temp / 4.19); 
     var curWind = windS.wind.speed;
     var curHumid = humid.main.humidity;
+    //var curIcon = icons.weather.icon;
+    //console.log(curIcon)
 
+    // format the date
+    currentDateEl.textContent = "";
+    var date = new Date();
+    currentDateEl.textContent = date.getFullYear() + "/"+ date.getMonth() + "/"+ date.getDate();
+
+    //icon displayed
+    //currentIconEl.textContent = "";
+    //var iconSearch = document.createElement("i");
+    //iconSearch.innerHTML = curIcon;
+    //currentIconEl.appendChild(iconSearch);
+   
     // create span elements 
     var citySearch = document.createElement("span");
     citySearch.textContent = cityName;
@@ -94,7 +112,6 @@ var displayCurrentWeather = function(curCity, temper, windS, humid) {
     currentTempEl.textContent = "";
     var tempSearch = document.createElement("span");
     tempSearch.textContent = "Temperature: " + Math.round(curTemper) +"°F";
-    console.log(curTemper);
     currentTempEl.appendChild(tempSearch);
 
     //current wind speed
@@ -111,6 +128,7 @@ var displayCurrentWeather = function(curCity, temper, windS, humid) {
 };
 
 
+// 5 day forcast 
 
    
 
