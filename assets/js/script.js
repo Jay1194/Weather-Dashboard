@@ -1,3 +1,4 @@
+
 //Create a Variable to Store the API Key
 var APIKey = "030315a07ff75a445c30f1d122ec064c";
 //Variables for the API Call (user input for the city)
@@ -17,14 +18,16 @@ var currentIconEl = document.querySelector("#icon")
 var currentCityEl = document.querySelector("#curCity");
 // current box container
 var currentBoxEl = document.querySelector("#currentBox")
-// current icon
-var currentIconEl = document.querySelector("#icon")
 // current temperature appended
 var currentTempEl = document.querySelector("#curTemp");
 //current wind speed appended
 var currentWindEl = document.querySelector("#curWind");
 // current humidity appended
 var currentHumEl = document.querySelector("#curHum");
+
+
+
+    
 
 
 //Make the API Call Using Fetch to get current weather
@@ -59,10 +62,12 @@ var formSubmitHandler = function(event) {
    
     // get value from input element
     var citys = cityInputEl.value.trim();
+    
 
     // send value over to getCurrentWeather()
     if (citys) {
-        getCurrentWeather(citys); 
+        getCurrentWeather(citys);
+        get5DayForcast(citys);
         // clears form out
         cityInputEl.value = "";
 
@@ -127,8 +132,81 @@ var displayCurrentWeather = function(citys, temper, windS, humid, icons) {
     currentHumEl.appendChild(humiditySearch);
 };
 
+// fetch 5 day forcast 
+var get5DayForcast = function (city) {
+    var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey
 
-// 5 day forcast 
+    // make a request to the url
+    fetch(apiUrl)
+    .then(function(response) {
+       //the response data is converted to JSON,
+       if (response.ok) {
+        response.json().then(function(data) {
+            // next 5 days dates display
+            get5DayStats(data.list, city);
+            // show city and all data from api for 40 day forcast
+            console.log(data.list, city);
+    });
+// custom alert message to let the user know that their search was unsuccessful
+  } else {
+    alert("Error: City not found");
+  }
+});
+};
+
+
+// 5 day dates
+var get5DayStats = function (data) {
+
+// control dates
+var currentDate = new Date(new Date().getTime() + 24 * 60 * 60);
+var day = currentDate.getDate() 
+var month = currentDate.getMonth() +1
+var year = currentDate.getFullYear()
+//console.log( day + "/" + month + "/" + year )
+
+// select all elements with data keys
+var dates = document.querySelectorAll('#date');
+
+// future dates
+for (var i = 0; i < dates.length; i++) {
+    var tomorrowDate = new Date(year, month -1, day + i + 1);
+    var dayNumber = i + i;
+    var dayString = "day" + dayNumber;
+
+dates[i].textContent = tomorrowDate.toLocaleDateString(); // Update the displayed date
+dates[i].dataset.data = dayString; // Set the dataset attribute
+}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// access to each card in an array
+//var days = document.querySelectorAll('#day');
+//console.log(days);
+
+// acces to inside of every article
+//days.forEach( d => {
+   // console.log(d.dataset);
+//})
+
+
+
+
 
    
 
