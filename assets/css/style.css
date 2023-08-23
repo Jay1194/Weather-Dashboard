@@ -43,3 +43,6 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4451A4", en
     width: 18%;
 }
 
+article, h5 {
+    margin-bottom: 3.5vw;
+}

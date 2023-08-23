@@ -142,10 +142,15 @@ var get5DayForcast = function (city) {
        //the response data is converted to JSON,
        if (response.ok) {
         response.json().then(function(data) {
-            // next 5 days dates display
-            get5DayStats(data.list, city);
-            // show city and all data from api for 40 day forcast
-            console.log(data.list, city);
+
+            // Extract the relevant properties from the fetched data
+            var temperature =( data.list[0].main.temp / 4.19)
+            var windSpeed = data.list[0].wind.speed;
+            var humidity = data.list[0].main.humidity;
+
+            // Call display5DayForcast with the extracted properties
+            display5DayForcast(temperature, windSpeed, humidity)
+            
     });
 // custom alert message to let the user know that their search was unsuccessful
   } else {
@@ -155,8 +160,8 @@ var get5DayForcast = function (city) {
 };
 
 
-// 5 day dates
-var get5DayStats = function (data) {
+// 5 day forcast
+var display5DayForcast = function (temperature, windSpeed, humidity) {
 
 // control dates
 var currentDate = new Date(new Date().getTime() + 24 * 60 * 60);
@@ -167,15 +172,53 @@ var year = currentDate.getFullYear()
 
 // select all elements with data keys
 var dates = document.querySelectorAll('#date');
+var temps = document.querySelectorAll('#temp');
+var winds = document.querySelectorAll('#wind')
+var hums = document.querySelectorAll('#humid')
 
-// future dates
+
+
 for (var i = 0; i < dates.length; i++) {
+
+// future dates    
     var tomorrowDate = new Date(year, month -1, day + i + 1);
     var dayNumber = i + i;
     var dayString = "day" + dayNumber;
+    
+    //appending dates
+    dates[i].textContent="";
+    dates[i].textContent = tomorrowDate.toLocaleDateString(); // Update the displayed date
+    dates[i].dataset.data = dayString; // Set the dataset attribute
+    
+// future temperatures
+    var nextTemp = "Temperature: " + Math.round(temperature + i) + "°F"
+    var tempNum = i + i;
+    var tempString = "temp" + tempNum;
 
-dates[i].textContent = tomorrowDate.toLocaleDateString(); // Update the displayed date
-dates[i].dataset.data = dayString; // Set the dataset attribute
+    //appending temperatures
+    temps[i].textContent = "";
+    temps[i].textContent = nextTemp;
+    temps[i].dataset.data = tempString;
+
+// future wind
+    var nextWind = "Wind: " + Math.round(windSpeed + i) +" mph";
+    var windNum = i + i;
+    var windString = "wind" + windNum;
+
+    //appending winds
+    winds[i].textContent= '';
+    winds[i].textContent = nextWind;
+    winds[i].dataset.data = windString;
+
+// future humidity
+    var nextHumid = "Humidity: " + (humidity + i) +"%";
+    var humidNum = i + i;
+    var humidString = "humid" + humidNum;
+
+    // appending humidity
+    hums[i].textContent = "";
+    hums[i].textContent = nextHumid;
+    hums[i].dataset.data = humidString;
 }
 };
 
