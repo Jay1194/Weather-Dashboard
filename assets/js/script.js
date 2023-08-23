@@ -24,6 +24,7 @@ var currentWindEl = document.querySelector("#curWind");
 var currentHumEl = document.querySelector("#curHum");
 
 
+
 //Make the API Call Using Fetch to get current weather
 var getCurrentWeather = function(city) {
     // store the OpenWeather Current Weather Data URL and the necessary variables
@@ -50,9 +51,13 @@ var getCurrentWeather = function(city) {
 });
 };
 
+
 // referance to Dom
     var historyEl = document.querySelector("#cache");
     console.log(historyEl);
+    
+// create array to hold search history
+var searchHistory = [];
 
 // search history is saved and displayed under search bar
 var displaySearchHistory = function(city) {
@@ -76,7 +81,7 @@ var displaySearchHistory = function(city) {
 cityNameListItem.addEventListener("click", function() {
     getCurrentWeather(city);
     get5DayForcast(city);
-})
+});
 };
 
 
