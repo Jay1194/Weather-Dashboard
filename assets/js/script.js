@@ -3,7 +3,7 @@
 var APIKey = "030315a07ff75a445c30f1d122ec064c";
 
 //Variables for the API Call (user input for the city)
-var city;
+var city ;
 
 // refernce to input element
 var cityInputEl = document.querySelector("#city");
@@ -35,6 +35,7 @@ var getCurrentWeather = function(city) {
 //the response data is converted to JSON,
         if (response.ok) {
         response.json().then(function(data) {
+            searchHistory(city);
             displayCurrentWeather(city, data, data, data, data);
     })
 // custom alert message to let the user know that their search was unsuccessful
@@ -50,6 +51,32 @@ var getCurrentWeather = function(city) {
 };
 
 
+// search history is saved and displayed under search bar
+var searchHistory = function(city) {
+
+    // referance to Dom
+    var historyEl = document.querySelector("#cache");
+    console.log(historyEl);
+
+    // create dynamic elements
+    var cityNameListItem = document.createElement("li");
+    var cityName = document.createElement("a");
+
+    // city name 
+    cityName.textContent = city.toUpperCase();
+
+    // classname goes to <li>
+    cityNameListItem.className = "history"
+
+    // append
+    cityNameListItem.appendChild(cityName);
+    historyEl.appendChild(cityNameListItem);
+};
+
+
+
+
+
 // executed upon a form submission browser event
 var formSubmitHandler = function(event) {
     event.preventDefault();
@@ -62,6 +89,7 @@ var formSubmitHandler = function(event) {
     if (citys) {
         getCurrentWeather(citys);
         get5DayForcast(citys);
+        
         // clears form out
         cityInputEl.value = "";
 
@@ -139,14 +167,10 @@ var get5DayForcast = function (city) {
 
             // Call display5DayForcast with the extracted properties
             display5DayForcast(temperature, windSpeed, humidity)
-            
-    });
-// custom alert message to let the user know that their search was unsuccessful
-  } else {
-    alert("Error: City not found");
-  }
-});
-};
+        });
+    }
+})};
+
 
 
 // 5 day forcast
