@@ -35,7 +35,7 @@ var getCurrentWeather = function(city) {
 //the response data is converted to JSON,
         if (response.ok) {
         response.json().then(function(data) {
-            searchHistory(city);
+            
             displayCurrentWeather(city, data, data, data, data);
     })
 // custom alert message to let the user know that their search was unsuccessful
@@ -50,31 +50,34 @@ var getCurrentWeather = function(city) {
 });
 };
 
-
-// search history is saved and displayed under search bar
-var searchHistory = function(city) {
-
-    // referance to Dom
+// referance to Dom
     var historyEl = document.querySelector("#cache");
     console.log(historyEl);
 
+// search history is saved and displayed under search bar
+var displaySearchHistory = function(city) {
+
     // create dynamic elements
     var cityNameListItem = document.createElement("li");
+    
     var cityName = document.createElement("a");
-
+    
     // city name 
     cityName.textContent = city.toUpperCase();
-
+    console.log(cityName)
     // classname goes to <li>
     cityNameListItem.className = "history"
 
     // append
     cityNameListItem.appendChild(cityName);
     historyEl.appendChild(cityNameListItem);
+
+
+cityNameListItem.addEventListener("click", function() {
+    getCurrentWeather(city);
+    get5DayForcast(city);
+})
 };
-
-
-
 
 
 // executed upon a form submission browser event
@@ -89,7 +92,7 @@ var formSubmitHandler = function(event) {
     if (citys) {
         getCurrentWeather(citys);
         get5DayForcast(citys);
-        
+        displaySearchHistory(citys);
         // clears form out
         cityInputEl.value = "";
 
