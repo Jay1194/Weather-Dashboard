@@ -1,6 +1,7 @@
 
 //Create a Variable to Store the API Key
 var APIKey = "030315a07ff75a445c30f1d122ec064c";
+
 //Variables for the API Call (user input for the city)
 var city;
 
@@ -11,9 +12,6 @@ var cityFormEl = document.querySelector("#city-form");
 
 // Todays Date
 var currentDateEl = document.querySelector("#curDate");
-// Icon
-var currentIconEl = document.querySelector("#icon")
-
 //current city apended
 var currentCityEl = document.querySelector("#curCity");
 // current box container
@@ -24,10 +22,6 @@ var currentTempEl = document.querySelector("#curTemp");
 var currentWindEl = document.querySelector("#curWind");
 // current humidity appended
 var currentHumEl = document.querySelector("#curHum");
-
-
-
-    
 
 
 //Make the API Call Using Fetch to get current weather
@@ -81,7 +75,7 @@ cityFormEl.addEventListener("submit", formSubmitHandler);
 
 
 // Dynamically present data for current weather box
-var displayCurrentWeather = function(citys, temper, windS, humid, icons) {
+var displayCurrentWeather = function(citys, temper, windS, humid) {
 
     //current city
     currentCityEl.textContent = "";
@@ -100,11 +94,6 @@ var displayCurrentWeather = function(citys, temper, windS, humid, icons) {
     var date = new Date();
     currentDateEl.textContent = date.getFullYear() + "/"+ date.getMonth() + "/"+ date.getDate();
 
-    //icon displayed
-    //currentIconEl.textContent = "";
-    //var iconSearch = document.createElement("i");
-    //iconSearch.innerHTML = curIcon;
-    //currentIconEl.appendChild(iconSearch);
    
     // create span elements 
     var citySearch = document.createElement("span");
@@ -144,7 +133,7 @@ var get5DayForcast = function (city) {
         response.json().then(function(data) {
 
             // Extract the relevant properties from the fetched data
-            var temperature =( data.list[0].main.temp / 4.19)
+            var temperature =(data.list[0].main.temp / 4.19)
             var windSpeed = data.list[0].wind.speed;
             var humidity = data.list[0].main.humidity;
 
@@ -238,14 +227,7 @@ for (var i = 0; i < dates.length; i++) {
 
 
 
-// access to each card in an array
-//var days = document.querySelectorAll('#day');
-//console.log(days);
 
-// acces to inside of every article
-//days.forEach( d => {
-   // console.log(d.dataset);
-//})
 
 
 

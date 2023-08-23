@@ -22,7 +22,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4451A4", en
 }
 
 .line{
-    margin: 5% 0;
+    margin: 18% 0;
     border-bottom: 1px silver solid;
 }
 
@@ -44,5 +44,9 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4451A4", en
 }
 
 article, h5 {
-    margin-bottom: 3.5vw;
+    margin-bottom: 2.55vw;
+}
+
+#date {
+    font-size: 1.4vw;;
 }
