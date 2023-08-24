@@ -16,8 +16,8 @@
     </header>
 <!-- search city form -->
     <section class="row m-1">
-        <div class="col-3">
-        <h2 class="font-weight-bold">Search for a City:</h2>
+        <div class="col-md-12 col-lg-3 col-xl-3">
+        <h2 class="title1 font-weight-bold">Search for a City:</h2>
         <form id="city-form">
             <label class="form-label" for="city"></label>
             <input name="city" id="city" type="text" placeholder="city name"  class="col-12 mb-2 p-2 rounded"/> 
@@ -27,7 +27,7 @@
           </form>
         </div>
 <!-- current city right now-->
-<div id="currentBox" class="col-8 border border-dark mt-3 ml-4">
+<div id="currentBox" class="col-md-11 col-lg-8 col-xl-8 border border-dark mt-3 ml-4">
     <div>
         <!-- append to the span -->
         <h1 id="curCity" class="d-inline"></span></h1><span class="h2 ml-3" id="curDate"></span>
@@ -39,7 +39,7 @@
 </section>
 <!-- Cached search history -->
 <section class="row m-1">
-    <div class="col-3">
+    <div class=" col-md-12 col-lg-3 col-xl-3">
         <div >
             <!-- append to the ul-->
             <ul id="cache" class="p-0 m-0">
@@ -48,13 +48,13 @@
     </div>
 </div>
 <!-- 5 day forcast -->
-<div class="col-8  mt-4 ml-4">
+<div class=" col-lg-8 col-xl-8  mt-4 ml-4">
     <div class="mb-3">
-        <h1>5 Day Forcast:</h1>
+        <h1 class="title">5 Day Forcast:</h1>
     </div>
     <!-- 5 day Cards-->
-    <div class="d-flex justify-content-around mb-auto">
-        <article class="card text-white bg-dark cards" style="max-width: 18rem;" >
+    <div class="  fiveDay d-flex justify-content-around mb-auto">
+        <article class=" card text-white bg-dark cards" style="max-width: 18rem;" >
             <div class="card-body">
                 <!-- Insert data into spans-->
                 <h5 id="date">Date:<span></span></h5>
@@ -64,7 +64,7 @@
                 <h5 id="humid">Humidity:<span></span></h5>
             </div>
         </article>
-        <article  class="card text-white bg-dark cards" style="max-width: 18rem;">
+        <article  class=" card text-white bg-dark cards" style="max-width: 18rem;">
             <div class="card-body">
                 <!-- Insert data into spans-->
                 <h5 id="date">Date:<span></span></h5>

@@ -24,7 +24,6 @@ var currentWindEl = document.querySelector("#curWind");
 var currentHumEl = document.querySelector("#curHum");
 
 
-
 //Make the API Call Using Fetch to get current weather
 var getCurrentWeather = function(city) {
     // store the OpenWeather Current Weather Data URL and the necessary variables
@@ -54,10 +53,10 @@ var getCurrentWeather = function(city) {
 
 // referance to Dom
     var historyEl = document.querySelector("#cache");
-    console.log(historyEl);
     
 // create array to hold search history
 var searchHistory = [];
+
 
 // search history is saved and displayed under search bar
 var displaySearchHistory = function(city) {
@@ -77,7 +76,6 @@ var displaySearchHistory = function(city) {
     cityNameListItem.appendChild(cityName);
     historyEl.appendChild(cityNameListItem);
 
-
 cityNameListItem.addEventListener("click", function() {
     getCurrentWeather(city);
     get5DayForcast(city);
@@ -92,7 +90,6 @@ var formSubmitHandler = function(event) {
     // get value from input element
     var citys = cityInputEl.value.trim();
     
-
     // send value over to getCurrentWeather()
     if (citys) {
         getCurrentWeather(citys);
@@ -122,15 +119,12 @@ var displayCurrentWeather = function(citys, temper, windS, humid) {
     var curTemper = (temper.main.temp / 4.19); 
     var curWind = windS.wind.speed;
     var curHumid = humid.main.humidity;
-    //var curIcon = icons.weather.icon;
-    //console.log(curIcon)
-
+    
     // format the date
     currentDateEl.textContent = "";
     var date = new Date();
     currentDateEl.textContent = date.getFullYear() + "/"+ date.getMonth() + "/"+ date.getDate();
 
-   
     // create span elements 
     var citySearch = document.createElement("span");
     citySearch.textContent = cityName;
@@ -157,9 +151,10 @@ var displayCurrentWeather = function(citys, temper, windS, humid) {
     currentHumEl.appendChild(humiditySearch);
 };
 
+
 // fetch 5 day forcast 
 var get5DayForcast = function (city) {
-    var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey
+    var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
 
     // make a request to the url
     fetch(apiUrl)
@@ -169,7 +164,7 @@ var get5DayForcast = function (city) {
         response.json().then(function(data) {
 
             // Extract the relevant properties from the fetched data
-            var temperature =(data.list[0].main.temp / 4.19)
+            var temperature =(data.list[0].main.temp / 4.19);
             var windSpeed = data.list[0].wind.speed;
             var humidity = data.list[0].main.humidity;
 
@@ -179,68 +174,62 @@ var get5DayForcast = function (city) {
     }
 })};
 
-
-
 // 5 day forcast
 var display5DayForcast = function (temperature, windSpeed, humidity) {
-
-// control dates
-var currentDate = new Date(new Date().getTime() + 24 * 60 * 60);
-var day = currentDate.getDate() 
-var month = currentDate.getMonth() +1
-var year = currentDate.getFullYear()
-//console.log( day + "/" + month + "/" + year )
-
-// select all elements with data keys
-var dates = document.querySelectorAll('#date');
-var temps = document.querySelectorAll('#temp');
-var winds = document.querySelectorAll('#wind')
-var hums = document.querySelectorAll('#humid')
-
-
-
-for (var i = 0; i < dates.length; i++) {
-
-// future dates    
-    var tomorrowDate = new Date(year, month -1, day + i + 1);
-    var dayNumber = i + i;
-    var dayString = "day" + dayNumber;
     
-    //appending dates
-    dates[i].textContent="";
-    dates[i].textContent = tomorrowDate.toLocaleDateString(); // Update the displayed date
-    dates[i].dataset.data = dayString; // Set the dataset attribute
+    // control dates
+    var currentDate = new Date(new Date().getTime() + 24 * 60 * 60);
+    var day = currentDate.getDate() 
+    var month = currentDate.getMonth() +1
+    var year = currentDate.getFullYear()
     
-// future temperatures
-    var nextTemp = "Temperature: " + Math.round(temperature + i) + "°F"
-    var tempNum = i + i;
-    var tempString = "temp" + tempNum;
+    // select all elements with data keys
+    var dates = document.querySelectorAll('#date');
+    var temps = document.querySelectorAll('#temp');
+    var winds = document.querySelectorAll('#wind')
+    var hums = document.querySelectorAll('#humid')
+    
+    for (var i = 0; i < dates.length; i++) {
+        // future dates
+        var tomorrowDate = new Date(year, month -1, day + i + 1);
+        var dayNumber = i + i;
+        var dayString = "day" + dayNumber;
 
-    //appending temperatures
-    temps[i].textContent = "";
-    temps[i].textContent = nextTemp;
-    temps[i].dataset.data = tempString;
+        //appending dates
+        dates[i].textContent="";
+        dates[i].textContent = tomorrowDate.toLocaleDateString(); // Update the displayed date
+        dates[i].dataset.data = dayString; // Set the dataset attribute
 
-// future wind
-    var nextWind = "Wind: " + Math.round(windSpeed + i) +" mph";
-    var windNum = i + i;
-    var windString = "wind" + windNum;
+        // future temperatures
+        var nextTemp = "Temperature: " + Math.round(temperature + i) + "°F";
+        var tempNum = i + i;
+        var tempString = "temp" + tempNum;
+        
+        //appending temperatures
+        temps[i].textContent = "";
+        temps[i].textContent = nextTemp;
+        temps[i].dataset.data = tempString;
 
-    //appending winds
-    winds[i].textContent= '';
-    winds[i].textContent = nextWind;
-    winds[i].dataset.data = windString;
+        // future wind
+        var nextWind = "Wind: " + Math.round(windSpeed + i) +" mph";
+        var windNum = i + i;
+        var windString = "wind" + windNum;
 
-// future humidity
-    var nextHumid = "Humidity: " + (humidity + i) +"%";
-    var humidNum = i + i;
-    var humidString = "humid" + humidNum;
+        //appending winds
+        winds[i].textContent= '';
+        winds[i].textContent = nextWind;
+        winds[i].dataset.data = windString;
+        
+        // future humidity
+        var nextHumid = "Humidity: " + (humidity + i) +"%";
+        var humidNum = i + i;
+        var humidString = "humid" + humidNum;
 
-    // appending humidity
-    hums[i].textContent = "";
-    hums[i].textContent = nextHumid;
-    hums[i].dataset.data = humidString;
-}
+        // appending humidity
+        hums[i].textContent = "";
+        hums[i].textContent = nextHumid;
+        hums[i].dataset.data = humidString;
+    };
 };
 
 
