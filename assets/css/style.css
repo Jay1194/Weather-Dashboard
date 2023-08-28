@@ -1,3 +1,4 @@
+
 .title-color {
     background: hsla(232, 41%, 45%, 1);
     
@@ -53,48 +54,9 @@
         font-size: 2vw;
     } 
 
-    @media screen and (max-width: 1300px) {
-        .fiveDay h5 {
-            font-size: .9vw;
+    
 
-        }
+   
 
-        article h5 {
-            margin-bottom: 1.5vw;
-        }
-
-        #date {
-            font-size: 1.5vw;
-        } 
-
-        .title{
-            font-size: 3vw;
-        }
-        .title1 {
-            font-size: 2.5vw;
-        }
-    }
-
-    @media screen and (max-width: 850px) {
-        .line {
-            margin: 1.5% 0;
-        }
-        .title1 {
-            font-size: 4vw;
-        }
-        header h1 {
-            margin-right: 10vw;
-            margin-bottom: 5vw;
-        }
-        .fiveDay h5 {
-            font-size: 2vw;
-        }
-        #currentBox {
-            margin: 2% 0;
-        }
-        #date {
-            font-size: 2.5vw;
-        }
-    };
-
+    
     

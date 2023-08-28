@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/largeScreens.css" />
+    <link rel="stylesheet" href="./assets/css/mediumScreen.css" />
+    <link rel="stylesheet" href="./assets/css/SmallScreen.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
 
 <body>
     <header>
-        <div class="m-2 title-color">
+        <div class="mt-2 title-color">
             <h1 class="title-align text-white d-flex justify-content-center">Weather Dashboard</h1>
         </div>
     </header>
@@ -27,7 +30,7 @@
           </form>
         </div>
 <!-- current city right now-->
-<div id="currentBox" class="col-md-11 col-lg-8 col-xl-8 border border-dark mt-3 ml-4">
+<div id="currentBox" class=" col-md-11 col-lg-8 col-xl-8 border border-dark mt-3 m-4">
     <div>
         <!-- append to the span -->
         <h1 id="curCity" class="d-inline"></span></h1><span class="h2 ml-3" id="curDate"></span>
@@ -39,7 +42,7 @@
 </section>
 <!-- Cached search history -->
 <section class="row m-1">
-    <div class=" col-md-12 col-lg-3 col-xl-3">
+    <div class=" col-12 col-md-12 col-lg-3 col-xl-3">
         <div >
             <!-- append to the ul-->
             <ul id="cache" class="p-0 m-0">
@@ -48,14 +51,14 @@
     </div>
 </div>
 <!-- 5 day forcast -->
-<div class=" col-lg-8 col-xl-8  mt-4 ml-4">
+<div class=" fiveDay col-11 col-lg-8 col-xl-8  mt-4 ml-4">
     <div class="mb-3">
         <h1 class="title">5 Day Forcast:</h1>
     </div>
     <!-- 5 day Cards-->
-    <div class="  d-flex justify-content-around mb-auto">
-        <article class=" card text-white bg-dark cards" style="max-width: 18rem;" >
-            <div class="card-body">
+    <div class=" d-flex justify-content-around mb-auto ">
+        <article class="  card text-white bg-dark cards" >
+            <div class="card-body ">
                 <!-- Insert data into spans-->
                 <h5 id="date">Date:<span></span></h5>
                 <i></i>
@@ -64,8 +67,8 @@
                 <h5 id="humid">Humidity:<span></span></h5>
             </div>
         </article>
-        <article  class=" card text-white bg-dark cards" style="max-width: 18rem;">
-            <div class="card-body">
+        <article class="card text-white bg-dark cards">
+            <div class="card-body ">
                 <!-- Insert data into spans-->
                 <h5 id="date">Date:<span></span></h5>
                 <i></i>
@@ -74,8 +77,8 @@
                 <h5 id="humid">Humidity:<span></span></h5>
             </div>
         </article>
-        <article  class=" card text-white bg-dark cards" style="max-width: 18rem;">
-            <div class="card-body">
+        <article class=" single-card card text-white bg-dark cards">
+            <div class="card-body ">
                 <!-- Insert data into spans-->
                 <h5 id="date">Date:<span></span></h5>
                 <i></i>
@@ -84,8 +87,8 @@
                 <h5 id="humid">Humidity:<span></span></h5>
             </div>
         </article>
-        <article  class=" card text-white bg-dark cards" style="max-width: 18rem;">
-            <div class="card-body">
+        <article class=" card text-white bg-dark cards" >
+            <div class="card-body ">
                 <!-- Insert data into spans-->
                 <h5 id="date">Date:<span></span></h5>
                 <i></i>
@@ -94,8 +97,8 @@
                 <h5 id="humid">Humidity:<span></span></h5>
             </div>
         </article>
-        <article  class="card text-white bg-dark cards" style="max-width: 18rem;">
-            <div class="card-body">
+        <article class=" card text-white bg-dark cards">
+            <div class="card-body ">
                 <!-- Insert data into spans-->
                 <h5 id="date" >Date:<span></span></h5>
                 <i></i>

@@ -1,0 +1,28 @@
+@media screen and (max-width: 850px) {
+    .line {
+        margin: 1.5% 0;
+    }
+    .title1 {
+        font-size: 4vw;
+    }
+    header h1 {
+        margin-right: 10vw;
+        margin-bottom: 5vw;
+    }
+    .fiveDay h5 {
+        font-size: 1.2vw;
+    }
+    .fiveDay div {
+        margin-bottom:4vw;
+    }
+    #currentBox {
+        margin: 2% 0;
+    }
+    #currentBox div h5{
+        margin: 2% 0;
+        font-size: 3vw;
+    }
+    #date {
+        font-size: 2.5vw;
+    }
+};

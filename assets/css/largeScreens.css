@@ -1,0 +1,29 @@
+@media screen and (max-width: 1300px) {
+
+    
+
+    article h5 {
+        margin-bottom: 1.5vw;
+    }
+
+    .card-body #date  {
+        font-size: 1.5vw;
+    } 
+    #currentBox div h5{
+        margin: 2% 0;
+        font-size: 2vw;
+    }
+
+    .title{
+        font-size: 3vw;
+    }
+    .title1 {
+        font-size: 2.5vw;
+    }
+    .fiveDay {
+        font-size: 1.1vw;
+    }
+    .d-flex  h5 {
+        font-size: .9vw;
+    }
+}
