@@ -27,7 +27,7 @@ var currentHumEl = document.querySelector("#curHum");
 //Make the API Call Using Fetch to get current weather
 var getCurrentWeather = function(city) {
     // store the OpenWeather Current Weather Data URL and the necessary variables
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
     // make a request to the url
     fetch(queryURL)
@@ -154,7 +154,7 @@ var displayCurrentWeather = function(citys, temper, windS, humid) {
 
 // fetch 5 day forcast 
 var get5DayForcast = function (city) {
-    var apiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
 
     // make a request to the url
     fetch(apiUrl)
