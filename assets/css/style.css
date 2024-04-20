@@ -1,4 +1,3 @@
-
     .title-color {
         background: hsla(232, 41%, 45%, 1);
         background: linear-gradient(0deg, hsla(232, 41%, 45%, 1) 0%, hsla(248, 93%, 11%, 1) 100%);
@@ -49,7 +48,7 @@
     }
     
     #date {
-        font-size: 2vw;
+        font-size: 1.9vw;
     } 
 
     
