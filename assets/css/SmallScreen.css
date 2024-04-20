@@ -6,51 +6,53 @@
         border: 3px black solid;
         flex: 1;
         flex: 0 85%;
-        
     }
     
     .d-flex {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-.mb-3 h1 {
-    font-size: 6vw;
-}
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-.title-color   {
-    width: 100%;
-}
+    .mb-3 h1 {
+        font-size: 6vw;
+    }
 
-#currentBox h5{
+    .title-color {
+        width: 100%;
+    }
+
+    #currentBox h5 {
+        margin-bottom: 3vw;
+        font-size: 4vw;
+    }
+
+    #currentBox h1 {
+        font-size:7vw;
+    }
+
+    .title-color h1 {
+        font-size: 8vw;
+    }
+
+    header {
+        margin-bottom: 10%;
+    }
+    .row h2 {
+        font-size: 5vw;
+    }
+
+    .card-body #date  {
+        font-size: 8vw;
+    }
     
-    margin-bottom: 3vw;
-    font-size: 4vw;
-}
-
-#currentBox h1 {
-font-size:7vw;
-}
-.title-color h1 {
-    font-size: 8vw;
-}
-
-header {
-    margin-bottom: 10%;
-}
-.row h2 {
-    font-size: 5vw;
-}
-
-.card-body #date  {
-    font-size: 8vw;
-}
-.card-body h5 {
-    font-size: 5vw
-}
-#currentBox {
-    width:100%
-}
+    .card-body h5 {
+        font-size: 5vw;
+    }
+    
+    #currentBox {
+        width:100%;
+    }
 }
 
