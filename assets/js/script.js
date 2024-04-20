@@ -1,7 +1,8 @@
 const API_KEY = "030315a07ff75a445c30f1d122ec064c"; 
+
 document.querySelector("#city-form").addEventListener("submit", function(event) {
     event.preventDefault();
-    let city = document.querySelector("#city").value.trim().toLowerCase(); 
+    let city = document.querySelector("#city").value.trim().toLowerCase();
     if (city) {
         fetchWeather(city);
         document.querySelector("#city").value = ""; 
@@ -10,14 +11,18 @@ document.querySelector("#city-form").addEventListener("submit", function(event) 
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    fetchWeather('San Francisco');
+});
+
 function fetchWeather(city) {
     getCurrentWeather(city)
         .then(data => {
             if (!searchHistory.includes(city)) { 
                 updateSearchHistory(city);
             }
-            get5DayForecast(city);
             displayCurrentWeather(city, data);
+            get5DayForecast(city);
         })
         .catch(error => {
             alert("Unable to connect to the weather service: " + error.message);
@@ -36,7 +41,7 @@ function getCurrentWeather(city) {
 }
 
 function displayCurrentWeather(city, data) {
-    const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
     document.querySelector("#curCity").textContent = `${city.toUpperCase()} (${new Date().toLocaleDateString()})`;
     document.querySelector("#icon").src = iconUrl;
     document.querySelector("#curTemp").textContent = `Temperature: ${data.main.temp}°C`;
@@ -62,13 +67,12 @@ function display5DayForecast(forecasts) {
     forecasts.filter((_, index) => index % 8 === 0).forEach(forecast => {
         const forecastDiv = document.createElement('div');
         forecastDiv.className = 'card text-white bg-dark cards'; 
-
         const date = new Date(forecast.dt_txt).toLocaleDateString();
-        const iconUrl = `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
+        const iconUrl = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
 
         forecastDiv.innerHTML = `
             <div class="card-body">
-                <h5><span>${date}</span></h5>
+                <h5>Date: <span>${date}</span></h5>
                 <img src="${iconUrl}" alt="Weather icon">
                 <h5>Temp: <span>${forecast.main.temp.toFixed(1)}°C</span></h5>
                 <h5>Wind: <span>${forecast.wind.speed.toFixed(1)} km/h</span></h5>
